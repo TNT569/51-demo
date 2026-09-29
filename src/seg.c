@@ -16,8 +16,8 @@ void refreshSeg(void) {
   SEG_CS = 1;
   unsigned char num = (seg_number / dig_table[seg_digit]) % 10;
   SEG_NUM = number[num];
-  SEG_A1 = pos_map[seg_digit] / 2; // 高位
-  SEG_A0 = pos_map[seg_digit] % 2; // 低位
+  SEG_A1 = pos_map[seg_digit] >> 1; // 高位
+  SEG_A0 = pos_map[seg_digit] & 1;  // 低位
   seg_digit++;
   if (seg_digit > 3)
     seg_digit = 0;
