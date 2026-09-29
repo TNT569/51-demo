@@ -32,10 +32,10 @@ targets:
           asm-compiler: {}
           beforeBuildTasks: []
           c/cpp-compiler:
-            language-c: c99
+            language-c: c23
           global:
             device: mcs51
-            misc-controls: --iram-size 256 --xram-size 0 --code-size 8192
+            misc-controls: --iram-size 128 --xram-size 0 --code-size 8192
             optimize-type: speed
           linker:
             $mainFileName: main

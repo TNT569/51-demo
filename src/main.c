@@ -3,21 +3,26 @@
  * Freq: 12MHz
  */
 
-#include <8052.h>
-#include <stdio.h>
-#include "uart.h"
+#include "seg.h"
 #include "timer.h"
+#include "uart.h"
+#include <8051.h>
+#include <stdio.h>
 
-void main(void)
-{
+void main(void) {
+  SP = 0x60; // 给出更多堆空间
   initTimer();
   initUart();
-  while (1)
-  {
-    if (f_1s == 1)
-    {
+  setSeg(1234);
+  while (1) {
+    if (f_2ms = 1) {
+      f_2ms = 0;
+      refreshSeg();
+    }
+    if (f_1s) {
       f_1s = 0;
-      printf_tiny("time is %d ms\n", tick_count);
+      printf_tiny("Time is %ums\n", tick_count);
+      setSeg(tick_count + 234);
     }
   }
 }
