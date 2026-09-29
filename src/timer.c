@@ -19,7 +19,7 @@ void timer0Interrupt(void) __interrupt(1)
     static unsigned char c5 = 0, c10 = 0, c20 = 0, c100 = 0;
     static unsigned int c1000 = 0;
     TH0 = 0xFC;
-    TL0 = 0x18;
+    TL0 ^= 0x18;
     tick_count += 1;
     if (++c5 >= 5)
     {
